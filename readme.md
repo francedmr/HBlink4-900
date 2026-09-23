@@ -64,7 +64,7 @@ sudo dnf install -y git python3
 ```bash
 cd /opt
 git clone https://github.com/francedmr/HBlink4-900.git
-cd HBlink4
+cd HBlink4-900
 ```
 
 Every remaining step is run from inside this directory.
