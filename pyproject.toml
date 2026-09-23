@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hblink4"
+description = "Next generation HomeBrew DMR protocol server"
+readme = "readme.md"
+requires-python = ">=3.9"
+license = "GPL-3.0-or-later"
+authors = [{ name = "Cort Buffington, N0MJS" }]
+# Installing is OPTIONAL. HBlink4 runs straight from a git checkout:
+#     pip install -r requirements.txt -r requirements-dashboard.txt
+#     python hblink.py config/config.json
+# This file exists for people who prefer `pip install -e .`, which additionally
+# provides `hblink4` / `hblink4-dashboard` commands. Dependencies are read from
+# the requirements files so there is only one place to declare them.
+dynamic = ["version", "dependencies", "optional-dependencies"]
+
+[project.urls]
+Homepage = "https://github.com/n0mjs710/HBlink4"
+
+# Console scripts, available only if you chose to `pip install` the project.
+# They are NOT how HBlink4 is normally run: the systemd units invoke the module
+# files by path straight from the checkout, so there is no install step to
+# repeat after a `git pull`. See SYSTEMD.md.
+[project.scripts]
+hblink4 = "hblink4.hblink:main"
+hblink4-dashboard = "dashboard.server:run"
+
+[tool.setuptools.dynamic]
+version = { attr = "hblink4.__version__" }
+dependencies = { file = ["requirements.txt"] }
+optional-dependencies.dashboard = { file = ["requirements-dashboard.txt"] }
+
+[tool.setuptools]
+packages = ["hblink4", "dashboard"]
+
+[tool.setuptools.package-data]
+dashboard = ["static/*", "config_sample.json"]
