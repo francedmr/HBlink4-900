@@ -62,8 +62,8 @@ sudo dnf install -y git python3
 ### 2. Get the code
 
 ```bash
-cd ~
-git clone https://github.com/n0mjs710/HBlink4
+cd /opt
+git clone https://github.com/francedmr/HBlink4-900.git
 cd HBlink4
 ```
 
