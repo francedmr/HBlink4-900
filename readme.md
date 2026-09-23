@@ -110,8 +110,10 @@ Repeaters reach HBlink4 over **UDP port 62031**, and the dashboard is served on
 **TCP port 8080**. If the machine runs a firewall, allow them:
 
 ```bash
-sudo ufw allow 62031/udp
-sudo ufw allow 8080/tcp
+sudo apt install ufw
+
+sudo ufw allow 63031/udp
+sudo ufw allow 9090/tcp
 ```
 
 Use `firewall-cmd` instead of `ufw` on Fedora/RHEL. If HBlink4 is behind a home
